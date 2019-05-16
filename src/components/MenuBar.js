@@ -1,10 +1,15 @@
 import React from 'react'
+import MainBox from '../containers/MainBox.js'
 
-const MenuBar = (props) => {
 
+export default class MenuBar extends React.Component{
+
+  // constructor(props) {
+  //   super(props)
+  // }
   /*
 
-  The 'a' tags below are the menu items. Think about the way a menu 
+  The 'a' tags below are the menu items. Think about the way a menu
   should work. When you click a menu item, the button typically becomes
   'active' to indicate that it is currently selected. How could we achieve
   this programatically? What other behavior do we expect when we click
@@ -13,26 +18,27 @@ const MenuBar = (props) => {
 
   */
 
-  return (
-    <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
-      </a>
+  render() {
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
-      </a>
+    return (
+      <div className="ui four item menu" >
+        <a className="item active" id="profile" onClick={this.props.onProfileClick} >
+          <i className="user large icon" id="profile"/>
+        </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
-      </a>
+        <a className="item" id="photo">
+          <i className="photo large icon" id="photo"/>
+        </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
-      </a>
-    </div>
-  )
+        <a className="item" id="cocktail" onClick={this.props.onCocktailClick}>
+          <i className="cocktail large icon" id="cocktail"/>
+        </a>
+
+        <a className="item" id="pokemon" onClick={this.props.onPokeClick}>
+          <i className=" themeisle large icon" id="pokemon"/>
+        </a>
+      </div>
+    )
+  }
 
 }
-
-export default MenuBar

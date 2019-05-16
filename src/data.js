@@ -18,5 +18,3 @@ export const cocktails = {
 		{name: "Long Island Iced Tea", description: "Drinking one of these is like borrowing tomorrow's happiness for today."}
 	]
 }
-
-
