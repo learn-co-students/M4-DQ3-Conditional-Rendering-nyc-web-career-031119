@@ -4,8 +4,16 @@ import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
 
+  state = {page: ""}
+
+  onPageChange = (page) => {
+    console.log(page);
+    this.setState({page: page})
+  }
 
   render() {
+
+    console.log("the current state is: ", this.state.page)
 
     /*
 
@@ -13,12 +21,32 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    let displayPage;
+    const detailsToDisplay = <div>Please Select a Page to View!</div>
+
+
+    switch (this.state.page) {
+      case "profile":
+        displayPage = <Profile />
+        break;
+      case "photo":
+        displayPage = <Photos />
+        break;
+      case "cocktail":
+        displayPage = <Cocktails />
+        break;
+      case "pokemon":
+        displayPage = <Pokemon />
+        break;
+      default:
+        displayPage = detailsToDisplay
+        break;
+    }
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar onPageChange={this.onPageChange} activePage={this.state.page}/>
+        {displayPage}
       </div>
     )
   }
