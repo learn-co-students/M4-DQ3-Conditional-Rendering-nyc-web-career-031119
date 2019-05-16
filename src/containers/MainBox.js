@@ -3,6 +3,25 @@ import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
+  state = {page: <p>nah</p>};
+
+  //this one
+
+  profileClick = () => {
+    this.setState({page: Profile()});
+  };
+
+  cameraClick = () => {
+    this.setState({page: Photos()});
+  };
+
+  drinksClick = () => {
+    this.setState({page: Cocktails()});
+  };
+
+  pkmnClick = () => {
+    this.setState({page: <Pokemon/>});
+  };
 
 
   render() {
@@ -13,12 +32,13 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    const detailsToDisplay = <span>Hi, I'm a div!</span>
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar profileClick={this.profileClick} cameraClick={this.cameraClick} drinksClick={this.drinksClick} pkmnClick={this.pkmnClick}
+        />
+        {this.state.page}
       </div>
     )
   }

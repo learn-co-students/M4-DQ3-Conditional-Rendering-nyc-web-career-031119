@@ -63,6 +63,7 @@ export class Pokemon extends React.Component {
   }
 
   componentDidMount() {
+    console.log('mounting ur mom');
     this.getRandomPokemon()
   }
 
